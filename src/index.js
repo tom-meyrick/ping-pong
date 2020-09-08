@@ -11,6 +11,7 @@ const initial = {
   player2: 0,
   serving: 1,
   winner: 0,
+  scores: [],
 };
 
 //Functions
@@ -43,13 +44,29 @@ const winner = (state) => {
   };
 };
 
+const storeResult = (state) => {
+  return {
+    ...state,
+    scores:
+      state.winner > 0
+        ? [
+            ...state.scores,
+            {
+              player1: { score: state.player1, won: state.winner === 1 },
+              player2: { score: state.player2, won: state.winner === 2 },
+            },
+          ]
+        : state.scores,
+  };
+};
+
 // Reducer
 const reducer = (state, action) => {
   switch (action.type) {
     case "INCREMENTP1":
-      return winner(serving(player1(state)));
+      return storeResult(winner(serving(player1(state))));
     case "INCREMENTP2":
-      return winner(serving(player2(state)));
+      return storeResult(winner(serving(player2(state))));
     case "RESET":
       return initial;
     default:
@@ -74,6 +91,7 @@ const render = () => {
       handleReset={() => store.dispatch({ type: "RESET" })}
       serving={state.serving}
       winner={state.winner}
+      scores={state.scores}
     />,
     document.getElementById("root")
   );

@@ -3,6 +3,7 @@ import Header from "./Header";
 import Scorecard from "./Scorecard";
 import WinnerMessage from "./WinnerMessage";
 import Reset from "./Reset";
+import ScoreTable from "./ScoreTable";
 
 const App = ({
   player1,
@@ -12,6 +13,7 @@ const App = ({
   handleIncrementP2,
   handleReset,
   winner,
+  scores,
 }) => (
   <React.Fragment>
     <Header />
@@ -38,6 +40,7 @@ const App = ({
     </div>
     <WinnerMessage winner={winner} />
     <Reset handleReset={handleReset} />
+    <ScoreTable scores={scores} />
   </React.Fragment>
 );
 
