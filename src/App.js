@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header";
-import Scorecards from "./Scorecards";
+import Scorecard from "./Scorecard";
 import WinnerMessage from "./WinnerMessage";
 import Reset from "./Reset";
 
@@ -15,13 +15,26 @@ const App = ({
 }) => (
   <React.Fragment>
     <Header />
-    <Scorecards
-      serving={serving}
-      player1={player1}
-      player2={player2}
-      handleIncrementP1={handleIncrementP1}
-      handleIncrementP2={handleIncrementP2}
-    />
+    <div className="col-md-12">
+      <Scorecard
+        serving={serving}
+        player={player1}
+        handleIncrement={handleIncrementP1}
+        playerName={"Player 1"}
+        serveNotifier={
+          "card text-center" + (serving === 1 ? " bg-dark text-white" : "")
+        }
+      />
+      <Scorecard
+        serving={serving}
+        player={player2}
+        handleIncrement={handleIncrementP2}
+        playerName={"Player 2"}
+        serveNotifier={
+          "card text-center" + (serving === 2 ? " bg-dark text-white" : "")
+        }
+      />
+    </div>
     <WinnerMessage winner={winner} />
     <Reset handleReset={handleReset} />
   </React.Fragment>
