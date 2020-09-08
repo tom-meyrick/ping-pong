@@ -2,9 +2,11 @@ import React from "react";
 
 const Reset = ({ handleReset }) => {
   return (
-    <button className="btn btn-danger" onClick={handleReset}>
-      Reset
-    </button>
+    <div className="d-flex justify-content-center">
+      <button className="btn btn-danger m-3" onClick={handleReset}>
+        Reset
+      </button>
+    </div>
   );
 };
 

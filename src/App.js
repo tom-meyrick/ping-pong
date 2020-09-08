@@ -17,7 +17,7 @@ const App = ({
 }) => (
   <div className="container">
     <Header />
-    <div className="col-md-12">
+    <div className="col-md-12 d-inline-flex">
       <Scorecard
         serving={serving}
         player={player1}
