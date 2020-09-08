@@ -1,46 +1,28 @@
 import React from "react";
-import Header from "./Header";
-import Scorecard from "./Scorecard";
-import WinnerMessage from "./WinnerMessage";
-import Reset from "./Reset";
-import ScoreTable from "./ScoreTable";
+import Header from "./components/Header";
+import Scorecard from "./components/Scorecard/ScoreCard";
+import WinnerMessage from "./components/WinnerMessage/index";
+import Reset from "./components/Reset/index";
+import ScoreTable from "./components/ScoreTable/index";
+import P1Score from "./components/Scorecard/P1Score";
+import P2Score from "./components/Scorecard/P2Score";
 
 const App = ({
-  player1,
-  player2,
-  serving,
   handleIncrementP1,
   handleIncrementP2,
-  handleReset,
   winner,
+  handleReset,
   scores,
 }) => (
   <div className="container">
     <Header />
     <div className="col-md-12 d-inline-flex">
-      <Scorecard
-        serving={serving}
-        player={player1}
-        handleIncrement={handleIncrementP1}
-        playerName={"Player 1"}
-        serveNotifier={
-          "card text-center" + (serving === 1 ? " bg-dark text-white" : "")
-        }
-      />
-      <Scorecard
-        serving={serving}
-        player={player2}
-        handleIncrement={handleIncrementP2}
-        playerName={"Player 2"}
-        serveNotifier={
-          "card text-center" + (serving === 2 ? " bg-dark text-white" : "")
-        }
-        winner={winner}
-      />
+      <P1Score handleIncrement={handleIncrementP1} />
+      <P2Score handleIncrement={handleIncrementP2} />
     </div>
-    <WinnerMessage winner={winner} />
+    <WinnerMessage />
     <Reset handleReset={handleReset} />
-    <ScoreTable scores={scores} />
+    <ScoreTable />
   </div>
 );
 

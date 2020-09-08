@@ -2,18 +2,24 @@ import React from "react";
 
 const Scorecard = ({
   serving,
-  player,
+  score,
   handleIncrement,
+  playerID,
   playerName,
   serveNotifier,
   winner,
 }) => {
   return (
     <div className="col-md-6 mt-4">
-      <div className={serveNotifier}>
+      <div
+        className={
+          "card text-center" +
+          (serving === playerID ? " bg-dark text-white" : "")
+        }
+      >
         <h5 className="card-header">{playerName}</h5>
         <div className="card-body">
-          <p className="card-text display-1">{player}</p>
+          <p className="card-text display-1">{score}</p>
         </div>
         <div className="card-footer">
           <button
