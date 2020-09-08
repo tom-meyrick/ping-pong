@@ -3,18 +3,21 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { createStore } from "redux";
+import { createStore, compose } from "redux";
 import persistState from "redux-localstorage";
 import { Provider } from "react-redux";
 import initial from "./data/initial";
 import reducer from "./data/reducers";
 
 //Store
-const store = createStore(
-  reducer,
-  initial,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+// const store = createStore(
+//   reducer,
+//   initial,
+//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// );
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, initial, composeEnhancers(persistState()));
 //Render
 const render = () => {
   let state = store.getState();
