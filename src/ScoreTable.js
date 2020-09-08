@@ -21,7 +21,7 @@ const ScoreTable = ({ scores }) => {
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">Game</th>
           <th scope="col">Winner</th>
           <th scope="col">Score</th>
         </tr>

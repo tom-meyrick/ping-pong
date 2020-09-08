@@ -15,7 +15,7 @@ const App = ({
   winner,
   scores,
 }) => (
-  <React.Fragment>
+  <div className="container">
     <Header />
     <div className="col-md-12">
       <Scorecard
@@ -41,7 +41,7 @@ const App = ({
     <WinnerMessage winner={winner} />
     <Reset handleReset={handleReset} />
     <ScoreTable scores={scores} />
-  </React.Fragment>
+  </div>
 );
 
 export default App;
