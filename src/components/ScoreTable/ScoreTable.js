@@ -17,7 +17,7 @@ const ScoreTable = ({ scores }) => {
     </tbody>
   ));
 
-  return (
+  return scores.length > 0 ? (
     <table class="table">
       <thead>
         <tr>
@@ -28,7 +28,7 @@ const ScoreTable = ({ scores }) => {
       </thead>
       {listScore}
     </table>
-  );
+  ) : null;
 };
 
 export default ScoreTable;
