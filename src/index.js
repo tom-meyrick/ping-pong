@@ -23,13 +23,17 @@ const serving = (state) => ({
   ...state,
   serving: Math.floor((state.player1 + state.player2) / 5) % 2 === 0 ? 1 : 2,
 });
+//Check that the difference between the two players is >= 2
+const aheadByTwo = (state) => Math.abs(state.player1 - state.player2) >= 2;
+//Check the score has reached 21
 const reached21 = (state) => state.player1 >= win || state.player2 >= win;
+//Compare the scores of the two players and return the winner
 const whoWon = (state) => (state.player1 > state.player2 ? 1 : 2);
 //Determines the winner
 const winner = (state) => {
   return {
     ...state,
-    winner: reached21(state) ? whoWon(state) : 0,
+    winner: reached21(state) && aheadByTwo(state) ? whoWon(state) : 0,
   };
 };
 
