@@ -13,23 +13,29 @@ const initial = {
   winner: 0,
 };
 
-//Variables
-const win = 21;
-
 //Functions
+
+//Set P1 state
 const player1 = (state) => ({ ...state, player1: state.player1 + 1 });
+//Set P2 state
 const player2 = (state) => ({ ...state, player2: state.player2 + 1 });
+//Return a 2 or a 5 depending on if we are at deuce
+const deuce = (state) => (state.player1 >= 20 && state.player2 >= 20 ? 2 : 5);
+//Check who is serving
 const serving = (state) => ({
   ...state,
-  serving: Math.floor((state.player1 + state.player2) / 5) % 2 === 0 ? 1 : 2,
+  serving:
+    Math.floor((state.player1 + state.player2) / deuce(state)) % 2 === 0
+      ? 1
+      : 2,
 });
 //Check that the difference between the two players is >= 2
 const aheadByTwo = (state) => Math.abs(state.player1 - state.player2) >= 2;
 //Check the score has reached 21
-const reached21 = (state) => state.player1 >= win || state.player2 >= win;
+const reached21 = (state) => state.player1 >= 21 || state.player2 >= 21;
 //Compare the scores of the two players and return the winner
 const whoWon = (state) => (state.player1 > state.player2 ? 1 : 2);
-//Determines the winner
+//Determines the winner using the previous functions
 const winner = (state) => {
   return {
     ...state,
