@@ -3,9 +3,11 @@ import React from "react";
 const App = ({
   player1,
   player2,
+  serving,
   handleIncrementP1,
   handleIncrementP2,
   handleReset,
+  winner,
 }) => (
   <React.Fragment>
     {/* header */}
@@ -16,7 +18,11 @@ const App = ({
     {/* scores */}
     <div className="row mb-4">
       <div className="col-md-6 mt-4">
-        <div className="card text-center bg-dark text-white">
+        <div
+          className={
+            "card text-center" + (serving === 1 ? " bg-dark text-white" : "")
+          }
+        >
           <h5 className="card-header">Player 1</h5>
           <div className="card-body">
             <p className="card-text display-1">{player1}</p>
@@ -33,7 +39,11 @@ const App = ({
       </div>
 
       <div className="col-md-6 mt-4">
-        <div className="card text-center">
+        <div
+          className={
+            "card text-center" + (serving === 2 ? " bg-dark text-white" : "")
+          }
+        >
           <h5 className="card-header">Player 2</h5>
           <div className="card-body">
             <p className="card-text display-1">{player2}</p>
@@ -51,11 +61,12 @@ const App = ({
     </div>
 
     {/* winner message */}
-    <h2 className="alert alert-success">
-      Player {/* winning player here */} wins!
-    </h2>
-
-    <hr />
+    {winner > 0 ? (
+      <>
+        <h2 className="alert alert-success">Player {winner} wins!</h2>
+        <hr />
+      </>
+    ) : null}
 
     {/* reset button */}
     <button className="btn btn-danger" onClick={handleReset}>
