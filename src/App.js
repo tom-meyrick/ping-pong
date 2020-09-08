@@ -33,6 +33,7 @@ const App = ({
         serveNotifier={
           "card text-center" + (serving === 2 ? " bg-dark text-white" : "")
         }
+        winner={winner}
       />
     </div>
     <WinnerMessage winner={winner} />
