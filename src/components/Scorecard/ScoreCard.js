@@ -27,6 +27,7 @@ const Scorecard = ({
               "form-control btn btn-success" + (winner > 0 ? " disabled" : "")
             }
             onClick={handleIncrement}
+            disabled={winner > 0}
           >
             +
           </button>
