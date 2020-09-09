@@ -4,6 +4,7 @@ const initial = {
   serving: 1,
   winner: 0,
   scores: [],
+  esperanto: [],
 };
 
 export default initial;

@@ -8,6 +8,7 @@ import persistState from "redux-localstorage";
 import { Provider } from "react-redux";
 import initial from "./data/initial";
 import reducer from "./data/reducers";
+import esperantoJSON from "./data/esperanto.json";
 
 //Store
 // const store = createStore(
@@ -27,9 +28,7 @@ const render = () => {
         handleIncrementP1={() => store.dispatch({ type: "INCREMENTP1" })}
         handleIncrementP2={() => store.dispatch({ type: "INCREMENTP2" })}
         handleReset={() => store.dispatch({ type: "RESET" })}
-        serving={state.serving}
-        winner={state.winner}
-        scores={state.scores}
+        handleClick={() => store.dispatch({ type: "ESPERANTO" })}
       />
     </Provider>,
     document.getElementById("root")

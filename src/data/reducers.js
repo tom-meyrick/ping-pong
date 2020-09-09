@@ -46,6 +46,22 @@ const storeResult = (state) => {
   };
 };
 
+//Return esperanto version of the site
+const formatJSON = (state, esperantoJSON) => {
+  return {
+    ...state,
+    esperanto: [
+      esperantoJSON.map((i) => [
+        i.player1,
+        i.player2,
+        i.serving,
+        i.reset,
+        i.player1Wins,
+      ]),
+    ],
+  };
+};
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "INCREMENTP1":
@@ -53,7 +69,12 @@ const reducer = (state, action) => {
     case "INCREMENTP2":
       return storeResult(winner(serving(player2(state))));
     case "RESET":
-      return initial;
+      return {
+        ...initial,
+        scores: state.scores,
+      };
+    case "ESPERANTO":
+      return formatJSON();
     default:
       return state;
   }
