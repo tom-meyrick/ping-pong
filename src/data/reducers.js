@@ -14,7 +14,8 @@ const player1 = (state) => ({ ...state, player1: state.player1 + 1 });
 //Set P2 state
 const player2 = (state) => ({ ...state, player2: state.player2 + 1 });
 //Return a 2 or a 5 depending on if we are at deuce
-const deuce = (state) => (state.player1 >= 20 && state.player2 >= 20 ? 2 : 5);
+const deuce = (state) =>
+  state.player1 >= 20 && state.player2 >= 20 ? 2 : state.alternate;
 //Check who is serving
 const serving = (state) => ({
   ...state,
