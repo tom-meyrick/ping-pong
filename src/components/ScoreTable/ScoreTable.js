@@ -1,13 +1,15 @@
 import React from "react";
 
 const ScoreTable = ({ scores }) => {
-  let listScore = scores.map((game) => (
+  let listScore = scores.map((game, index) => (
     <tbody>
       <tr>
-        <th scope="row" key={game.index}>
-          {game.index}
+        <th scope="row" key={index}>
+          {index + 1}
         </th>
-        <td>{game.player1.won === true ? "Player 1" : "Player 2"}</td>
+        <td>
+          {game.player1.won === true ? game.player1.name : game.player1.name}
+        </td>
         <td>
           {game.player1.score > game.player2.score
             ? `${game.player1.score} to ${game.player2.score}`

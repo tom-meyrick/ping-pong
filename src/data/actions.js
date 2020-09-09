@@ -16,14 +16,24 @@ export const decrement = () => {
   };
 };
 
+export const reset = () => {
+  return {
+    type: "RESET",
+  };
+};
+
 export const esperanto = () => {
   return {
     type: "ESPERANTO",
   };
 };
 
-export const reset = () => {
+export const submit = ({ p1Name, p2Name, win, alternate }) => {
   return {
-    type: "RESET",
+    type: "START_GAME",
+    p1Name: p1Name,
+    p2Name: p2Name,
+    win: +win,
+    alternate: +alternate,
   };
 };

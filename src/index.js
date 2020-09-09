@@ -13,17 +13,11 @@ import esperantoJSON from "./data/esperanto.json";
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducer, initial, composeEnhancers(persistState()));
 //Render
-const render = () => {
-  let state = store.getState();
-  ReactDOM.render(
-    <Provider store={store}>
-      <App />
-    </Provider>,
-    document.getElementById("root")
-  );
-};
-
-render();
-store.subscribe(render);
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
+);
 
 serviceWorker.unregister();

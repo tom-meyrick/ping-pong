@@ -1,7 +1,14 @@
 import initial from "./initial";
 
 //Functions
-
+//Set values from form
+const submit = (state, action) => ({
+  ...state,
+  p1Name: action.p1Name,
+  p2Name: action.p2Name,
+  win: action.win,
+  alternate: action.alternate,
+});
 //Set P1 state
 const player1 = (state) => ({ ...state, player1: state.player1 + 1 });
 //Set P2 state
@@ -19,7 +26,8 @@ const serving = (state) => ({
 //Check that the difference between the two players is >= 2
 const aheadByTwo = (state) => Math.abs(state.player1 - state.player2) >= 2;
 //Check the score has reached 21
-const reached21 = (state) => state.player1 >= 21 || state.player2 >= 21;
+const reached21 = (state) =>
+  state.player1 >= state.win || state.player2 >= state.win;
 //Compare the scores of the two players and return the winner
 const whoWon = (state) => (state.player1 > state.player2 ? 1 : 2);
 //Determines the winner using the previous functions
@@ -38,8 +46,16 @@ const storeResult = (state) => {
         ? [
             ...state.scores,
             {
-              player1: { score: state.player1, won: state.winner === 1 },
-              player2: { score: state.player2, won: state.winner === 2 },
+              player1: {
+                name: state.p1Name,
+                score: state.player1,
+                won: state.winner === 1,
+              },
+              player2: {
+                name: state.p2Name,
+                score: state.player2,
+                won: state.winner === 2,
+              },
             },
           ]
         : state.scores,
@@ -71,10 +87,12 @@ const reducer = (state, action) => {
     case "RESET":
       return {
         ...initial,
-        scores: state.scores,
+        // scores: state.scores,
       };
     case "ESPERANTO":
       return formatJSON();
+    case "START_GAME":
+      return submit(state, action);
     default:
       return state;
   }

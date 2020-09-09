@@ -2,11 +2,11 @@ import { connect } from "react-redux";
 import ScoreCard from "./ScoreCard";
 import { incrementP2 } from "../../data/actions";
 
-const mapStateToProps = ({ player2, winner, serving }) => ({
+const mapStateToProps = ({ player2, winner, serving, p2Name }) => ({
   score: player2,
   winner: winner,
   serving: serving,
-  playerName: "Player 2",
+  playerName: p2Name,
   playerID: 2,
 });
 
