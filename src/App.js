@@ -8,22 +8,16 @@ import P1Score from "./components/Scorecard/P1Score";
 import P2Score from "./components/Scorecard/P2Score";
 import LanguageToggle from "./components/LanguageToggle";
 
-const App = ({
-  handleIncrementP1,
-  handleIncrementP2,
-  winner,
-  handleReset,
-  scores,
-}) => (
+const App = ({}) => (
   <div className="container">
     <Header />
     <div className="col-md-12 d-inline-flex">
-      <P1Score handleIncrement={handleIncrementP1} />
-      <P2Score handleIncrement={handleIncrementP2} />
+      <P1Score />
+      <P2Score />
     </div>
     <WinnerMessage />
-    <Reset handleReset={handleReset} />
-    {/* <LanguageToggle handleClick={handleClick} /> */}
+    <Reset />
+    <LanguageToggle />
     <ScoreTable />
   </div>
 );

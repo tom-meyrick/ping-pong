@@ -9,4 +9,10 @@ const mapStateToProps = ({ player1, winner, serving }) => ({
   playerID: 1,
 });
 
-export default connect(mapStateToProps)(ScoreCard);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleIncrement: () => dispatch({ type: "INCREMENTP1" }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ScoreCard);

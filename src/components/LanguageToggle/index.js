@@ -5,4 +5,10 @@ const mapStateToProps = ({ esperanto }) => ({
   esperanto,
 });
 
-export default connect(mapStateToProps)(LanguageToggle);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleClick: () => dispatch({ type: "ESPERANTO" }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LanguageToggle);

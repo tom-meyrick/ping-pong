@@ -5,4 +5,10 @@ const mapStateToProps = ({ reset }) => ({
   reset,
 });
 
-export default connect(mapStateToProps)(Reset);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleReset: () => dispatch({ type: "RESET" }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Reset);
