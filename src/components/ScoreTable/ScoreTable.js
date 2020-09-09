@@ -8,7 +8,7 @@ const ScoreTable = ({ scores }) => {
           {index + 1}
         </th>
         <td>
-          {game.player1.won === true ? game.player1.name : game.player1.name}
+          {game.player1.won === true ? game.player1.name : game.player2.name}
         </td>
         <td>
           {game.player1.score > game.player2.score
