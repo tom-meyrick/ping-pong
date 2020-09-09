@@ -5,7 +5,7 @@ const ScoreTable = ({ scores }) => {
     <tbody>
       <tr>
         <th scope="row" key={game.index}>
-          1
+          {game.index}
         </th>
         <td>{game.player1.won === true ? "Player 1" : "Player 2"}</td>
         <td>
