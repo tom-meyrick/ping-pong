@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import LanguageToggle from "./LanguageToggle";
+import { esperanto } from "../../data/actions";
 
 const mapStateToProps = ({ esperanto }) => ({
   esperanto,
@@ -7,7 +8,7 @@ const mapStateToProps = ({ esperanto }) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleClick: () => dispatch({ type: "ESPERANTO" }),
+    handleClick: () => dispatch(esperanto()),
   };
 };
 

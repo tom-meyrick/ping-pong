@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import Reset from "./Reset";
+import { reset } from "../../data/actions";
 
 const mapStateToProps = ({ reset }) => ({
   reset,
@@ -7,7 +8,7 @@ const mapStateToProps = ({ reset }) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleReset: () => dispatch({ type: "RESET" }),
+    handleReset: () => dispatch(reset()),
   };
 };
 
