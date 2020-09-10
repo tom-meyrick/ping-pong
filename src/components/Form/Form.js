@@ -8,7 +8,7 @@ class Form extends Component {
       p2Name: props.p2Name,
       win: props.win,
       alternate: props.alternate,
-      submitted: false,
+      submitted: props.submitted,
     };
     this.handleP1 = this.handleP1.bind(this);
     this.handleP2 = this.handleP2.bind(this);
@@ -36,65 +36,69 @@ class Form extends Component {
       p2Name: "",
       win: "",
       alternate: "",
-      submitted: true,
     });
   }
   render() {
     const { p1Name, p2Name, win, alternate } = this.state;
     return (
-      <form>
-        <div class="form-group">
-          <label for="player1Name">Player 1 Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="player1Name"
-            aria-describedby="name"
-            onChange={this.handleP1}
-            value={p1Name}
-          />
-        </div>
-        <div class="form-group">
-          <label for="player2Name">Player 2 Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="player2Name"
-            aria-describedby="name"
-            onChange={this.handleP2}
-            value={p2Name}
-          />
-        </div>
-        <div class="form-group">
-          <label for="WinningScore">Winning Score</label>
-          <input
-            type="number"
-            class="form-control"
-            id="winningScore"
-            aria-describedby="winningScore"
-            onChange={this.handleWin}
-            value={win}
-          />
-        </div>
-        <div class="form-group">
-          <label for="alternateEvery">Alternate Every</label>
-          <input
-            type="number"
-            class="form-control"
-            id="alternateEvery"
-            aria-describedby="winningScore"
-            onChange={this.handleAlternate}
-            value={alternate}
-          />
-        </div>
-        <button
-          type="submit"
-          class="btn btn-primary"
-          onClick={this.handleSubmit}
-        >
-          Submit
-        </button>
-      </form>
+      <div>
+        <header className="jumbotron mt-5 mb-4">
+          <h1>Ready to play?</h1>
+        </header>
+        <form>
+          <div class="form-group">
+            <label for="player1Name">Player 1 Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="player1Name"
+              aria-describedby="name"
+              onChange={this.handleP1}
+              value={p1Name}
+            />
+          </div>
+          <div class="form-group">
+            <label for="player2Name">Player 2 Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="player2Name"
+              aria-describedby="name"
+              onChange={this.handleP2}
+              value={p2Name}
+            />
+          </div>
+          <div class="form-group">
+            <label for="WinningScore">Winning Score</label>
+            <input
+              type="number"
+              class="form-control"
+              id="winningScore"
+              aria-describedby="winningScore"
+              onChange={this.handleWin}
+              value={win}
+            />
+          </div>
+          <div class="form-group">
+            <label for="alternateEvery">Alternate Every</label>
+            <input
+              type="number"
+              class="form-control"
+              id="alternateEvery"
+              aria-describedby="winningScore"
+              onChange={this.handleAlternate}
+              value={alternate}
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            onClick={this.handleSubmit}
+          >
+            Submit
+          </button>
+        </form>
+      </div>
     );
   }
 }

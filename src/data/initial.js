@@ -9,6 +9,7 @@ const initial = {
   winner: 0,
   scores: [],
   esperanto: [],
+  submitted: false,
 };
 
 export default initial;

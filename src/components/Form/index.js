@@ -8,6 +8,7 @@ const mapStateToProps = (state) => {
     p2Name: state.p2Name,
     win: state.win,
     alternate: state.alternate,
+    submitted: state.submitted,
   };
 };
 

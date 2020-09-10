@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="jumbotron mt-4 mb-0 d-flex justify-content-center">
+    <header className="jumbotron mt-5 mb-0 d-flex justify-content-center">
       <h1>PongPing</h1>
     </header>
   );

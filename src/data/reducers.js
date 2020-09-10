@@ -8,6 +8,7 @@ const submit = (state, action) => ({
   p2Name: action.p2Name,
   win: action.win,
   alternate: action.alternate,
+  submitted: true,
 });
 //Set P1 state
 const player1 = (state) => ({ ...state, player1: state.player1 + 1 });
@@ -89,6 +90,7 @@ const reducer = (state, action) => {
       return {
         ...initial,
         scores: state.scores,
+        submitted: false,
       };
     case "ESPERANTO":
       return formatJSON();

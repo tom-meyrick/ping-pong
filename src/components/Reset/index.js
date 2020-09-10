@@ -2,8 +2,9 @@ import { connect } from "react-redux";
 import Reset from "./Reset";
 import { reset } from "../../data/actions";
 
-const mapStateToProps = ({ reset }) => ({
+const mapStateToProps = ({ reset, submitted }) => ({
   reset,
+  submitted,
 });
 
 const mapDispatchToProps = (dispatch) => {
