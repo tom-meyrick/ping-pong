@@ -8,7 +8,9 @@ const Scorecard = ({
   playerName,
   serveNotifier,
   winner,
+  gameID,
 }) => {
+  console.log(gameID);
   return (
     <div className="col-md-6 mt-4">
       <div
@@ -26,7 +28,7 @@ const Scorecard = ({
             className={
               "form-control btn btn-success" + (winner > 0 ? " disabled" : "")
             }
-            onClick={handleIncrement}
+            onClick={() => handleIncrement(gameID)}
             disabled={winner > 0}
           >
             +

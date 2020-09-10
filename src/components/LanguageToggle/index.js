@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import LanguageToggle from "./LanguageToggle";
-import { esperanto } from "../../data/actions";
+import { esperanto } from "../../data/actions/state";
 
 const mapStateToProps = ({ esperanto }) => ({
   esperanto,

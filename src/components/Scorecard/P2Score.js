@@ -1,18 +1,19 @@
 import { connect } from "react-redux";
 import ScoreCard from "./ScoreCard";
-import { incrementP2 } from "../../data/actions";
+import { handlePatchP2 } from "../../data/actions/api";
 
-const mapStateToProps = ({ player2, winner, serving, p2Name }) => ({
+const mapStateToProps = ({ player2, winner, serving, player_2, gameID }) => ({
   score: player2,
   winner: winner,
   serving: serving,
-  playerName: p2Name,
+  playerName: player_2,
   playerID: 2,
+  gameID,
 });
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleIncrement: () => dispatch(incrementP2()),
+    handleIncrement: (gameID) => dispatch(handlePatchP2(gameID)),
   };
 };
 

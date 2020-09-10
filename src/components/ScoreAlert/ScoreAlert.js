@@ -1,9 +1,9 @@
 import React from "react";
 
-const ScoreAlert = ({ win }) => {
+const ScoreAlert = ({ winning_score }) => {
   return (
     <span class="badge badge-info d-flex justify-content-center">
-      {win} to win
+      {winning_score} to win
     </span>
   );
 };

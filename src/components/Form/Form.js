@@ -4,10 +4,11 @@ class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      p1Name: props.p1Name,
-      p2Name: props.p2Name,
-      win: props.win,
-      alternate: props.alternate,
+      player_1: props.player_1,
+      player_2: props.player_2,
+      winning_score: props.winning_score,
+      change_serve: props.change_serve,
+      gameID: props.gameID,
       submitted: props.submitted,
     };
     this.handleP1 = this.handleP1.bind(this);
@@ -17,29 +18,29 @@ class Form extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleP1(e) {
-    this.setState({ p1Name: e.currentTarget.value });
+    this.setState({ player_1: e.currentTarget.value });
   }
   handleP2(e) {
-    this.setState({ p2Name: e.currentTarget.value });
+    this.setState({ player_2: e.currentTarget.value });
   }
   handleWin(e) {
-    this.setState({ win: e.currentTarget.value });
+    this.setState({ winning_score: e.currentTarget.value });
   }
   handleAlternate(e) {
-    this.setState({ alternate: e.currentTarget.value });
+    this.setState({ change_serve: e.currentTarget.value });
   }
   handleSubmit(e) {
     e.preventDefault();
     this.props.handleSubmit({ ...this.state });
     this.setState({
-      p1Name: "",
-      p2Name: "",
-      win: "",
-      alternate: "",
+      player_1: "",
+      player_2: "",
+      winning_score: "",
+      change_serve: "",
     });
   }
   render() {
-    const { p1Name, p2Name, win, alternate } = this.state;
+    const { player_1, player_2, winning_score, change_serve } = this.state;
     return (
       <div>
         <header className="jumbotron mt-5 mb-4">
@@ -54,7 +55,7 @@ class Form extends Component {
               id="player1Name"
               aria-describedby="name"
               onChange={this.handleP1}
-              value={p1Name}
+              value={player_1}
             />
           </div>
           <div class="form-group">
@@ -65,7 +66,7 @@ class Form extends Component {
               id="player2Name"
               aria-describedby="name"
               onChange={this.handleP2}
-              value={p2Name}
+              value={player_2}
             />
           </div>
           <div class="form-group">
@@ -76,7 +77,7 @@ class Form extends Component {
               id="winningScore"
               aria-describedby="winningScore"
               onChange={this.handleWin}
-              value={win}
+              value={winning_score}
             />
           </div>
           <div class="form-group">
@@ -87,7 +88,7 @@ class Form extends Component {
               id="alternateEvery"
               aria-describedby="winningScore"
               onChange={this.handleAlternate}
-              value={alternate}
+              value={change_serve}
             />
           </div>
           <button

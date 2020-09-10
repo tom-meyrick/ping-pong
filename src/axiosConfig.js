@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "https://restful.training/api/pingpong",
+  baseURL: "https://restful.training/api/ping-pong/",
   headers: {
     Accept: "application/json",
 

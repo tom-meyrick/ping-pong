@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 import ScoreAlert from "./ScoreAlert";
 
-const mapStateToProps = ({ win }) => {
+const mapStateToProps = ({ winning_score }) => {
   return {
-    win,
+    winning_score,
   };
 };
 
