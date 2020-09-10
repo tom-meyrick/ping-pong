@@ -88,7 +88,7 @@ const reducer = (state, action) => {
     case "RESET":
       return {
         ...initial,
-        // scores: state.scores,
+        scores: state.scores,
       };
     case "ESPERANTO":
       return formatJSON();

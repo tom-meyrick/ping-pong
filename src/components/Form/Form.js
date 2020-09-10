@@ -8,6 +8,7 @@ class Form extends Component {
       p2Name: props.p2Name,
       win: props.win,
       alternate: props.alternate,
+      submitted: false,
     };
     this.handleP1 = this.handleP1.bind(this);
     this.handleP2 = this.handleP2.bind(this);
@@ -30,6 +31,13 @@ class Form extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.handleSubmit({ ...this.state });
+    this.setState({
+      p1Name: "",
+      p2Name: "",
+      win: "",
+      alternate: "",
+      submitted: true,
+    });
   }
   render() {
     const { p1Name, p2Name, win, alternate } = this.state;
