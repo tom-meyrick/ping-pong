@@ -7,13 +7,14 @@ import ScoreTable from "../components/ScoreTable";
 import ScoreAlert from "../components/ScoreAlert";
 import P1Score from "../components/Scorecard/P1Score";
 import P2Score from "../components/Scorecard/P2Score";
-// import LanguageToggle from "./components/LanguageToggle";
+import LanguageToggle from "../components/LanguageToggle";
 import Form from "../components/Form";
 
 const App = ({ submitted }) => (
   <div className="container align-middle">
     {submitted ? (
       <>
+        <LanguageToggle />
         <Header />
         <ScoreAlert />
         <div className="col-md-12 d-inline-flex">
@@ -22,7 +23,6 @@ const App = ({ submitted }) => (
         </div>
         <WinnerMessage />
         <Reset />
-        {/* <LanguageToggle /> */}
         <ScoreTable />
       </>
     ) : (

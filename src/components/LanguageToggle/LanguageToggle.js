@@ -1,7 +1,11 @@
 import React from "react";
 
-const LanguageToggle = () => {
-  return <button className="btn btn-warning">English/Esperanto</button>;
+const LanguageToggle = ({ handleClick }) => {
+  return (
+    <button className="btn mt-1" onClick={handleClick}>
+      🇬🇧/ 🇪🇸
+    </button>
+  );
 };
 
 export default LanguageToggle;
